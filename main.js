@@ -50,6 +50,11 @@ async function initDatabase() {
   `;
 }
 
+// Initialize database when module loads (for Vercel serverless)
+initDatabase().catch(err => {
+  console.error("Failed to initialize database:", err);
+});
+
 // 3. Express Setup
 const app = express();
 app.use(express.json()); // Parse JSON bodies
@@ -567,12 +572,5 @@ app.post("/setup/resume-local-webhooks", async (req, res) => {
   }
 });
 
-// Start the server
-initDatabase().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}).catch(err => {
-  console.error("Failed to initialize database:", err);
-  process.exit(1);
-});
+// Export app for Vercel serverless
+export default app;
