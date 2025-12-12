@@ -1,0 +1,19 @@
+{
+  "name": "top-holders-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node --watch --env-file=.env main.js",
+    "start": "node --env-file=.env main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^6.1.0",
+    "express": "^5.2.1",
+    "postgres": "^3.4.5"
+  },
+  "description": "Top Token Holders Balance Change Tracker Bot"
+}
