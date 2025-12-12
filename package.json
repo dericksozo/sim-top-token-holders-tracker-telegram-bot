@@ -4,8 +4,11 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "dev": "node --watch --env-file=.env main.js",
-    "start": "node --env-file=.env main.js"
+    "dev": "node main.js",
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   },
   "keywords": [],
   "author": "",
