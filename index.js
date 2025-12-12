@@ -2,7 +2,12 @@ import express from "express";
 import postgres from "postgres";
 import { setTimeout } from "node:timers/promises";
 import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { parse } from "csv-parse/sync";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // 1. Environment Setup
 const SIM_API_KEY = process.env.SIM_API_KEY || "";
@@ -79,7 +84,7 @@ function getChainId(blockchain) {
 
 function loadTokensFromCSV() {
   try {
-    const fileContent = fs.readFileSync("tokens.csv", "utf-8");
+    const fileContent = fs.readFileSync(path.join(__dirname, "tokens.csv"), "utf-8");
     const records = parse(fileContent, {
       columns: true, // Auto-detect headers
       skip_empty_lines: true,
