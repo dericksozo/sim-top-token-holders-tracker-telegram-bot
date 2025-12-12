@@ -2,10 +2,10 @@
   "name": "top-holders-tracker",
   "version": "1.0.0",
   "type": "module",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node main.js",
-    "start": "node main.js"
+    "dev": "node index.js",
+    "start": "node index.js"
   },
   "engines": {
     "node": ">=22.0.0"
