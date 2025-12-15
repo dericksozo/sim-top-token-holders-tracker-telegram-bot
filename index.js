@@ -298,8 +298,8 @@ app.post("/balances", async (req, res) => {
     if (processedTxs.has(change.transaction_hash)) continue;
     processedTxs.add(change.transaction_hash);
 
-    // Skip small transactions (e.g., less than $100)
-    if (change.value_delta_usd < 100) continue;
+    // Skip small transactions (e.g., less than $100,000)
+    if (change.value_delta_usd < 100000) continue;
 
     // Format and send notification
     const message = formatBalanceMessage(change, chainId);
